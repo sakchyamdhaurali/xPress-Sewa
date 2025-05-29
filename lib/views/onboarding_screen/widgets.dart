@@ -31,13 +31,21 @@ PageController controller,
                         top: Adaptive.h(3),
                         right: Adaptive.h(3),
                       ),
-                      child: Text(
-                        'Skip >',
-                        style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 18.dp,
-                          letterSpacing: 0.4,
+                      child: GestureDetector(
+                        onTap: () {
+                           Navigator.pushReplacement(
+                           context,
+                           MaterialPageRoute(builder: (context) => MainScreen()),
+                           );
+                        },
+                        child: Text(
+                          'Skip >',
+                          style: GoogleFonts.inter(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 18.dp,
+                            letterSpacing: 0.4,
+                          ),
                         ),
                       ),
                     ),
