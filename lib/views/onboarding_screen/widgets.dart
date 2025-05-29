@@ -71,7 +71,6 @@ PageController controller,
       ),
 
       Container(
-        height: 10.h,
         padding: EdgeInsets.only(left: 10.w, right: 10.w, bottom: 1.h),
 
         child: Center(
@@ -129,7 +128,7 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
     },
     child: Container(
     margin: EdgeInsets.only(bottom: 8.h),
-    width: 60.w,
+    width: 65.w,
     height: 5.h,
     decoration: BoxDecoration(
       border: Border.all(
@@ -146,12 +145,12 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
               : index == 2
               ? "Next"
               : index == 3
-              ? "Home"
+              ? "Explore"
               : "",
         style: GoogleFonts.inter(
           fontSize: 18.dp,
           fontWeight: FontWeight.w500,
-          color: const Color(0xFF4B4B4B),
+          color: index==1? const Color(0xFF4B4B4B): index==2 ? Colors.black: index==3? Colors.black: Colors.white,
         ),
       ),
     ),
