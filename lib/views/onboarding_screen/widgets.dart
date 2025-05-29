@@ -6,7 +6,12 @@ import 'package:xpress_sewa/views/main_screen/main_screen.dart';
 Widget appOnBoardingPage(
 BuildContext context,
 PageController controller,
-{required String title, required String subTitle, int index = 0}) {
+{ required String title, 
+  required String subTitle, 
+  int index = 0
+  }
+
+) {
   return Column(
     children: [
       Stack(
@@ -106,8 +111,6 @@ class DiagonalClipper extends CustomClipper<Path> {
 
 
 Widget _nextButton(int index, PageController controller, BuildContext context) {
-  // final h = MediaQuery.of(context).size.height;
-  // final w = MediaQuery.of(context).size.width;
 
   return GestureDetector(
     onTap: () {
