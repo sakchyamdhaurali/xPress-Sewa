@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:xpress_sewa/views/main_screen/main_screen.dart';
+import 'package:xpress_sewa/views/register_screen/register_screen.dart';
 
 Widget appOnBoardingPage(
 BuildContext context,
@@ -35,7 +35,7 @@ PageController controller,
                         onTap: () {
                            Navigator.pushReplacement(
                            context,
-                           MaterialPageRoute(builder: (context) => MainScreen()),
+                           MaterialPageRoute(builder: (context) => RegisterScreen()),
                            );
                         },
                         child: Text(
@@ -156,7 +156,7 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
               } else if (index == 3) {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MainScreen()),
+                  MaterialPageRoute(builder: (context) => RegisterScreen()),
                 );
               }
             },
@@ -195,7 +195,7 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
       } else {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => MainScreen()),
+          MaterialPageRoute(builder: (context) => RegisterScreen()),
         );
       }
     },
@@ -220,53 +220,3 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
     ),
   );
 }
-
-// Widget _nextButton(int index, PageController controller, BuildContext context) {
-
-//   return GestureDetector(
-//     onTap: () {
-//       if (index < 3) {
-//         controller.animateToPage(
-//           index,
-//           duration: const Duration(milliseconds: 300),
-//           curve: Curves.fastOutSlowIn,
-//         );
-//       } else {
-//         Navigator.pushReplacement(
-//         context,
-//         MaterialPageRoute(builder: (context) => MainScreen()),
-//       );
-//       }
-//     },
-//     child: Container(
-//     margin: EdgeInsets.only(bottom: 8.h),
-//     width: 65.w,
-//     height: 5.h,
-//     decoration: BoxDecoration(
-//       border: Border.all(
-//         color: const Color(0xFF777777),
-//         style: BorderStyle.solid,
-//       ),
-//       borderRadius: BorderRadius.circular(10),
-//     ),
-//     child: Center(
-//       child: Center(
-//         child: Text(
-//           index == 1
-//               ? "Get Started"
-//               : index == 2
-//               ? "Next"
-//               : index == 3
-//               ? "Explore"
-//               : "",
-//         style: GoogleFonts.inter(
-//           fontSize: 18.dp,
-//           fontWeight: FontWeight.w500,
-//           color: index==1? const Color(0xFF4B4B4B): index==2 ? Colors.black: index==3? Colors.black: Colors.white,
-//         ),
-//       ),
-//     ),
-//   ),
-//       ),
-//   );
-// }
