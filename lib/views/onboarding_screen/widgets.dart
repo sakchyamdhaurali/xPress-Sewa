@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-Widget appOnBoardingPage() {
+Widget appOnBoardingPage(
+  // BuildContext context,
+  // PageController controller,
+  {
+    required String title,
+    required String subTitle,
+    int index = 0,
+  }
+) {
   return Column(
     children: [
       Stack(
@@ -18,15 +27,15 @@ Widget appOnBoardingPage() {
                     alignment: Alignment.topRight,
                     child: Padding(
                       padding: EdgeInsets.only(
-                        top: Adaptive.h(4), 
-                        right: Adaptive.h(2),
+                        top: Adaptive.h(3), 
+                        right: Adaptive.h(3),
                       ),
                       child: Text(
                         'Skip >',
-                        style: TextStyle(
+                        style: GoogleFonts.inter(
                           color: Colors.white, 
                           fontWeight: FontWeight.w400,
-                          fontSize: 20.dp,
+                          fontSize: 18.dp,
                           letterSpacing: 0.4,
                           ),
                       ),
@@ -53,31 +62,33 @@ Widget appOnBoardingPage() {
           height: 4.h,
         ),
 
-       Text("Welcome to Xpress Sewa",
-            style: TextStyle(
+       Text(title,
+            style: GoogleFonts.inter(
               color: Colors.black,
-              fontSize: 24.dp,
+              fontSize: 22.dp,
               fontWeight: FontWeight.w700,
 
             ),
             ),
 
       Container(
-        height: 12.h,
+        height: 10.h,
         padding: EdgeInsets.only(
-          top: 1.h,
-
          left: 10.w,
          right: 10.w,
+         bottom: 1.h,
         ),
 
-        child: Text("Express Sewa is a fast, service-based app that quickly connects users to hire anything they need, anytime, anywhere.",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 16.dp,
-          color: const Color(0xFF333333),
-          
-        ),
+        child: Center(
+          child: Text(subTitle,
+          textAlign: TextAlign.center,
+          style: GoogleFonts.inter(
+            fontSize: 15.dp,
+            fontWeight: FontWeight.w400,
+            color: const Color(0xFF333333),
+            
+          ),
+          ),
         ),
         ),
         Spacer(),
@@ -95,15 +106,17 @@ Widget appOnBoardingPage() {
             ),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Center(child: Text(
-            "Get Started",
-            style: TextStyle(
-              fontSize: 18,
-              color: const Color(0xFF4B4B4B),
+          child:  Center(
+        child: Text(
+         "Get Started",
+          style: GoogleFonts.inter(
+                 fontSize: 18,
+                 fontWeight: FontWeight.w500,
+                 color: const Color(0xFF4B4B4B),
+                 ),
             ),
-            )
-          ),
-        ),       
+            ),  
+        ),   
     ],
   );
 }
