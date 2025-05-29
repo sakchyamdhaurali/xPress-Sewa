@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:xpress_sewa/views/onboarding_screen/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     //Set time for splash screen display
     Timer(Duration(seconds: 4), (){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> OnboardingScreen()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const OnboardingScreen()));
     }
 
     );
@@ -26,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFF41626A),
+      color: const Color(0xFF41626A),
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white,
@@ -35,8 +36,8 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               Center(
                 child: Container(
-                  height: 200,
-                  width: 200,
+                  height: 200.h,
+                  width: 200.w,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFF41626A),
