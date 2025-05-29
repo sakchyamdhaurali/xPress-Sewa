@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:xpress_sewa/views/onboarding_screen/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({ Key? key }) : super(key: key);
@@ -8,6 +11,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    //Set time for splash screen display
+    Timer(Duration(seconds: 4), (){
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> OnboardingScreen()));
+    }
+
+    );
+    }
   @override
   Widget build(BuildContext context) {
     return Container(
