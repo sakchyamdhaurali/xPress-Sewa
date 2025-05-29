@@ -107,9 +107,74 @@ class DiagonalClipper extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
 
-
-
 Widget _nextButton(int index, PageController controller, BuildContext context) {
+  if (index == 2 || index == 3) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 8.h, left: 5.w, right: 8.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Back Button
+          GestureDetector(
+            onTap: () {
+              controller.previousPage(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
+            },
+            child: Container(
+              width: 30.w,
+              height: 5.h,
+              // padding: EdgeInsets.only(
+              //   right: 10.w,
+              // ),
+              decoration: BoxDecoration(
+                color: const Color(0xFF41626A),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Icon(Icons.arrow_back, color: Colors.white),
+            ),
+          ),
+
+          // Main Action Button (Next / Explore)
+          GestureDetector(
+            onTap: () {
+              if (index == 2) {
+                controller.animateToPage(
+                  index + 1,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.fastOutSlowIn,
+                );
+              } else if (index == 3) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainScreen()),
+                );
+              }
+            },
+            child: Container(
+              width: 50.w,
+              height: 5.h,
+              decoration: BoxDecoration(
+                border: Border.all(color: const Color(0xFF777777)),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Center(
+                child: Text(
+                  index == 2 ? "Next" : "Explore",
+                  style: GoogleFonts.inter(
+                    fontSize: 18.dp,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   return GestureDetector(
     onTap: () {
@@ -121,40 +186,79 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
         );
       } else {
         Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => MainScreen()),
-      );
+          context,
+          MaterialPageRoute(builder: (context) => MainScreen()),
+        );
       }
     },
     child: Container(
-    margin: EdgeInsets.only(bottom: 8.h),
-    width: 65.w,
-    height: 5.h,
-    decoration: BoxDecoration(
-      border: Border.all(
-        color: const Color(0xFF777777),
-        style: BorderStyle.solid,
+      margin: EdgeInsets.only(bottom: 8.h),
+      width: 65.w,
+      height: 5.h,
+      decoration: BoxDecoration(
+        border: Border.all(color: const Color(0xFF777777)),
+        borderRadius: BorderRadius.circular(10),
       ),
-      borderRadius: BorderRadius.circular(10),
-    ),
-    child: Center(
       child: Center(
         child: Text(
-          index == 1
-              ? "Get Started"
-              : index == 2
-              ? "Next"
-              : index == 3
-              ? "Explore"
-              : "",
-        style: GoogleFonts.inter(
-          fontSize: 18.dp,
-          fontWeight: FontWeight.w500,
-          color: index==1? const Color(0xFF4B4B4B): index==2 ? Colors.black: index==3? Colors.black: Colors.white,
+          index == 1 ? "Get Started" : "",
+          style: GoogleFonts.inter(
+            fontSize: 18.dp,
+            fontWeight: FontWeight.w500,
+            color: const Color(0xFF4B4B4B),
+          ),
         ),
       ),
     ),
-  ),
-      ),
   );
 }
+
+// Widget _nextButton(int index, PageController controller, BuildContext context) {
+
+//   return GestureDetector(
+//     onTap: () {
+//       if (index < 3) {
+//         controller.animateToPage(
+//           index,
+//           duration: const Duration(milliseconds: 300),
+//           curve: Curves.fastOutSlowIn,
+//         );
+//       } else {
+//         Navigator.pushReplacement(
+//         context,
+//         MaterialPageRoute(builder: (context) => MainScreen()),
+//       );
+//       }
+//     },
+//     child: Container(
+//     margin: EdgeInsets.only(bottom: 8.h),
+//     width: 65.w,
+//     height: 5.h,
+//     decoration: BoxDecoration(
+//       border: Border.all(
+//         color: const Color(0xFF777777),
+//         style: BorderStyle.solid,
+//       ),
+//       borderRadius: BorderRadius.circular(10),
+//     ),
+//     child: Center(
+//       child: Center(
+//         child: Text(
+//           index == 1
+//               ? "Get Started"
+//               : index == 2
+//               ? "Next"
+//               : index == 3
+//               ? "Explore"
+//               : "",
+//         style: GoogleFonts.inter(
+//           fontSize: 18.dp,
+//           fontWeight: FontWeight.w500,
+//           color: index==1? const Color(0xFF4B4B4B): index==2 ? Colors.black: index==3? Colors.black: Colors.white,
+//         ),
+//       ),
+//     ),
+//   ),
+//       ),
+//   );
+// }
